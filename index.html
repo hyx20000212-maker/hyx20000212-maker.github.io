@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuxin Hu - Data Analyst / ML Engineer</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #e0e0e0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; background: var(--primary); padding: 0.8rem 2rem; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+        nav .logo { color: #fff; font-size: 1.3rem; font-weight: 700; }
+        nav .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+        nav .nav-links a { color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+        nav .nav-links a:hover, nav .nav-links a.active { color: #fff; }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .hamburger span { width: 25px; height: 3px; background: #fff; border-radius: 2px; }
+        section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
+        section:first-of-type { margin-top: 60px; }
+        .section-title { font-size: 1.8rem; color: var(--primary); margin-bottom: 2rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--accent); display: inline-block; }
+        #home { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 80vh; padding-top: 100px; background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%); max-width: 100%; color: #fff; }
+        #home h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        #home .headline { font-size: 1.25rem; max-width: 700px; margin: 0.5rem auto 1.5rem; color: #bdc3c7; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+        .tag { background: rgba(52,152,219,0.25); border: 1px solid var(--accent); color: #ecf0f1; padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.9rem; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .about-text p { margin-bottom: 1rem; color: var(--text-light); }
+        .info-card { background: var(--card-bg); border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .info-card h3 { color: var(--accent); margin-bottom: 0.8rem; }
+        .info-card ul { list-style: none; padding: 0; }
+        .info-card li { padding: 0.3rem 0; color: var(--text-light); }
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .skill-card { background: var(--card-bg); border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 4px solid var(--accent); }
+        .skill-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.1rem; }
+        .skill-card ul { list-style: none; padding: 0; }
+        .skill-card li { padding: 0.25rem 0; color: var(--text-light); font-size: 0.95rem; }
+        .project-card { background: var(--card-bg); border-radius: 10px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 5px solid var(--accent); }
+        .project-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.3rem; }
+        .project-date { color: var(--accent); font-size: 0.9rem; margin-bottom: 1rem; }
+        .project-detail { margin-bottom: 0.6rem; color: var(--text-light); }
+        .project-detail strong { color: var(--text); }
+        .resume-section { background: var(--card-bg); border-radius: 10px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .resume-block { margin-bottom: 1.5rem; }
+        .resume-block h3 { color: var(--primary); margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+        .resume-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.4rem 0; flex-wrap: wrap; }
+        .resume-item .left { font-weight: 600; }
+        .resume-item .right { color: var(--text-light); font-size: 0.9rem; }
+        .resume-item .desc { width: 100%; color: var(--text-light); font-size: 0.93rem; margin-top: 0.2rem; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .contact-card { background: var(--card-bg); border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.3s; }
+        .contact-card:hover { transform: translateY(-3px); }
+        .contact-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .contact-card a { color: var(--accent); text-decoration: none; word-break: break-all; }
+        .contact-card a:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 2rem; background: var(--primary); color: #bdc3c7; font-size: 0.85rem; }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            nav .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary); flex-direction: column; padding: 1rem 2rem; gap: 0.8rem; }
+            nav .nav-links.show { display: flex; }
+            #home h1 { font-size: 2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .resume-item { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo">Yuxin Hu</div>
+    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+        <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="home">
+    <h1>Yuxin Hu</h1>
+    <p class="headline">Seeking a Data Analyst / Machine Learning Engineer position where I can leverage my skills in Python, NLP, and predictive modeling to drive data-driven business decisions.</p>
+    <div class="tags">
+        <span class="tag">Data Analytics</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Deep Learning</span>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>I am a graduate student in Data Science at Lingnan University, Hong Kong, with a bachelor's degree in Computer Science and Technology from Macau University of Science and Technology.</p>
+            <p>My academic and project experience spans machine learning, natural language processing, and full-stack data pipelines. I am passionate about transforming raw data into actionable insights and building end-to-end ML solutions.</p>
+            <p>I have hands-on industry experience as a Unity Client Developer, which gave me a strong foundation in software engineering, teamwork, and delivering user-facing products under tight deadlines.</p>
+            <h3 style="margin-top:1rem; color: var(--primary);">Strengths &amp; Focus Areas</h3>
+            <ul style="margin-top:0.5rem; color:var(--text-light); padding-left:1.2rem;">
+                <li>Strong analytical and problem-solving skills with the ability to translate business needs into quantifiable data goals</li>
+                <li>Experienced in building and evaluating ML/NLP pipelines end-to-end</li>
+                <li>Proficient in professional English communication (IELTS 6.5)</li>
+                <li>Fast learner - GPA 3.4+ in graduate studies, top 20% of cohort</li>
+            </ul>
+        </div>
+        <div>
+            <div class="info-card">
+                <h3>Education</h3>
+                <ul>
+                    <li><strong>M.Sc. in Data Science</strong><br>Lingnan University, Hong Kong<br>Sep 2025 - Jul 2026 (Expected)</li>
+                    <li style="margin-top:0.8rem;"><strong>B.Sc. in Computer Science &amp; Technology</strong><br>Macau University of Science &amp; Technology<br>Sep 2019 - Jul 2023</li>
+                </ul>
+            </div>
+            <div class="info-card" style="margin-top:1rem;">
+                <h3>Highlights</h3>
+                <ul>
+                    <li>Graduate GPA: 3.4+</li>
+                    <li>IELTS: 6.5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>Python, C#</li>
+                <li>Machine Learning &amp; Deep Learning</li>
+                <li>Natural Language Processing (NLP)</li>
+                <li>Regression &amp; Classification Modeling</li>
+                <li>Statistical Analysis &amp; Data Visualization</li>
+                <li>SQL &amp; NoSQL Databases</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h3>Business Skills</h3>
+            <ul>
+                <li>Problem Framing &amp; Requirements Analysis</li>
+                <li>Translating Business Goals into Data Objectives</li>
+                <li>Model Evaluation &amp; Result Reporting</li>
+                <li>Cross-functional Communication</li>
+                <li>Technical Documentation &amp; Presentation</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h3>Tools &amp; Frameworks</h3>
+            <ul>
+                <li>pandas, NumPy, scikit-learn, XGBoost</li>
+                <li>PyTorch, Transformers (Hugging Face)</li>
+                <li>Gensim (Word2Vec, GloVe)</li>
+                <li>PySpark</li>
+                <li>Django, Streamlit</li>
+                <li>Git, Google Colab</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-card">
+        <h3>Data Center Power Consumption Analysis</h3>
+        <div class="project-date">Sep 2025 - Nov 2026</div>
+        <p class="project-detail"><strong>Problem:</strong> Energy costs account for a significant share of data center operating expenses. We analyzed electricity metrics from an Ecuador-based data center to forecast energy demand and detect anomalous consumption patterns.</p>
+        <p class="project-detail"><strong>Data:</strong> Ecuador data center power metrics dataset containing active / reactive energy, power factor, and environmental indicators.</p>
+        <p class="project-detail"><strong>Approach:</strong> Built regression models (Linear Regression, Random Forest Regression, SVR) on the training set to predict Active Energy; trained classification models (XGBoost, Logistic Regression, Random Forest) to categorize server load types. Applied grid / random search for hyperparameter tuning with 10-fold cross-validation and early stopping to prevent overfitting.</p>
+        <p class="project-detail"><strong>Outcome / Impact:</strong> Regression models quantified future energy demand to support capacity planning and adaptive cooling; classification models identified abnormal energy usage (e.g., hardware faults) for timely intervention. Compared multi-model results on the test set to select the best-performing pipeline.</p>
+        <p class="project-detail"><strong>My Contribution:</strong> Independently developed all regression and classification pipelines, conducted hyperparameter tuning, and performed comparative analysis across models on the test set.</p>
+    </div>
+    <div class="project-card">
+        <h3>NLP Engineering Project for English Long-text Summarization</h3>
+        <div class="project-date">Jan 2025 - Apr 2026</div>
+        <p class="project-detail"><strong>Problem:</strong> Automatically generating high-quality summaries from lengthy English texts to save analysts' reading time.</p>
+        <p class="project-detail"><strong>Data:</strong> English long-text corpus used for abstractive / extractive summarization benchmarks.</p>
+        <p class="project-detail"><strong>Approach:</strong> Fine-tuned multiple pre-trained language models; built a unified evaluation pipeline outputting ROUGE metrics and sample predictions; developed and deployed a Streamlit end-to-end demo app with multi-model inference and interactive parameter configuration.</p>
+        <p class="project-detail"><strong>Outcome / Impact:</strong> Delivered a reproducible evaluation framework and a user-facing demo that enables non-technical stakeholders to compare summarization quality across models in real-time.</p>
+        <p class="project-detail"><strong>My Contribution:</strong> Completed multi-model fine-tuning; built the unified evaluation pipeline; developed and deployed the Streamlit application with interactive parameter controls.</p>
+    </div>
+    <div class="project-card">
+        <h3>McDonald's Review Sentiment Classification</h3>
+        <div class="project-date">2025 - 2026 (Course Project)</div>
+        <p class="project-detail"><strong>Problem:</strong> Classifying McDonald's customer reviews into positive, neutral, and negative sentiments to help the brand identify pain points and improve service quality.</p>
+        <p class="project-detail"><strong>Data:</strong> McDonald's review dataset with text reviews and star ratings; preprocessed into train / test splits.</p>
+        <p class="project-detail"><strong>Approach:</strong> Explored multiple text embedding strategies - Word2Vec, GloVe, and BERT - combined with classical ML models (Logistic Regression, Random Forest, XGBoost) and PySpark-based pipelines (Decision Tree, GBT via OneVsRest). Applied TF-IDF, n-gram features, hyperparameter tuning via grid search, and cross-validation.</p>
+        <p class="project-detail"><strong>Outcome / Impact:</strong> Achieved competitive accuracy on 3-class sentiment classification; identified data leakage risks and proposed mitigation strategies for future iterations.</p>
+        <p class="project-detail"><strong>My Contribution:</strong> Built the full embedding pipeline (Word2Vec, GloVe, BERT), trained and evaluated multiple classifiers, and documented findings on feature importance and data quality issues.</p>
+    </div>
+</section>
+
+<section id="resume">
+    <h2 class="section-title">Resume</h2>
+    <div class="resume-section">
+        <div class="resume-block">
+            <h3>Education</h3>
+            <div class="resume-item">
+                <span class="left">M.Sc. in Data Science - Lingnan University, Hong Kong</span>
+                <span class="right">Sep 2025 - Jul 2026</span>
+            </div>
+            <div class="resume-item">
+                <span class="left">B.Sc. in Computer Science &amp; Technology - Macau University of Science &amp; Technology</span>
+                <span class="right">Sep 2019 - Jul 2023</span>
+            </div>
+        </div>
+        <div class="resume-block">
+            <h3>Work Experience</h3>
+            <div class="resume-item">
+                <span class="left">Unity Client Developer - Beijing Competitive Era Technology Co., Ltd.</span>
+                <span class="right">Feb 2024 - Aug 2024</span>
+            </div>
+            <div class="resume-item">
+                <span class="desc">Responsible for UI assembly and feature implementation; retrieved data from local storage, databases, and network protocols to build gameplay systems including inventory, status, and item management modules.</span>
+            </div>
+        </div>
+        <div class="resume-block">
+            <h3>Awards &amp; Certifications</h3>
+            <div class="resume-item"><span class="left">Graduate GPA: 3.4+</span></div>
+            <div class="resume-item"><span class="left">IELTS: 6.5</span></div>
+        </div>
+        <p style="margin-top:1.5rem; text-align:center; color: var(--text-light);">A downloadable PDF version of the full resume is available upon request.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+        <div class="contact-card">
+            <div class="icon">&#x1F4E7;</div>
+            <h3>Email</h3>
+            <a href="mailto:hyx20000212@outlook.com">hyx20000212@outlook.com</a>
+        </div>
+        <div class="contact-card">
+            <div class="icon">&#x1F4F1;</div>
+            <h3>Phone</h3>
+            <p>+86 199-0452-3879</p>
+        </div>
+        <div class="contact-card">
+            <div class="icon">&#x1F4CD;</div>
+            <h3>Location</h3>
+            <p>Shenzhen, Guangdong, China</p>
+        </div>
+    </div>
+</section>
+
+<footer>&copy; 2026 Yuxin Hu. All rights reserved.</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-links').classList.remove('show');
+        });
+    });
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
